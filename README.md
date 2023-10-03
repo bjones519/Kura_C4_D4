@@ -3,8 +3,8 @@ Deploy a web application onto an EC2 instance using Jenkins and setup monitoring
 
 
 ## Steps
-1. Create an EC2 ubuntu instance with Jenkins "python3.10-venv", "python3-pip" and "ngnix" installed onto it
-2. Run the Jenkins Pipeline
+1. Create an EC2 ubuntu instance with Jenkins, "python3.10-venv", "python3-pip" and "ngnix" installed onto it
+2. Configure a multibranch pipeline on Jenkins and run the Jenkins Pipeline
 ![pipeline](screenshots/Jenkins.png)
 
 3. Navigate to the web application to make sure it was deployed correctly
