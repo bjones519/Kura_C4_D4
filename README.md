@@ -17,6 +17,8 @@ Deploy a web application onto an EC2 instance using Jenkins and setup monitoring
 6. Since I wanted to se how the server was performing I selected the "cpu_usage_user" metric.
  When I ran a second build the cpu spiked but not nearly as high as the first time. This could be because when we deployed the application nothing has changed and also the Gunicorn server has 4 worker process running in the background handling the requests that come in.
 ![monitor](screenshots/CloudWatchCondensed.png)
+7. Add an alarm to notify you by email when the CPU goes above a certain percentage in a certain amount of time
+![Alarm](screenshots/Alarm.png)
 
 ## Systems Diagram
 ![Design](screenshots/Dep4Diagram.png)
