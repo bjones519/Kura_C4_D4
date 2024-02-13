@@ -9,7 +9,7 @@ jobs:
       - name: Set up Python 3.9
         uses: actions/setup-python@v4
         with:
-            python-verion: 3.9
+            python-verion: '3.9'
       - run: |
             python3 -m venv test3
             source test3/bin/activate
@@ -20,6 +20,15 @@ jobs:
 #       - run: |
 #             source test3/bin/activate
 #             py.test --verbose --junit-xml test-reports/results.xml
+
+# steps:
+#     - name: Clean up
+#       - shell: bash
+#       run: |
+#         ps aux | grep -i "gunicorn" > pid.txt || exit 0
+#         if [ -s pid.txt ]; then
+#           kill $(cat pid.txt) 
+#         fi
 
 #   Clean:
 #     runs-on: ubuntu-latest
