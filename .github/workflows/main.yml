@@ -1,18 +1,37 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+name: App Deployment
+run-name: Flask App Deployment 🚀
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  Build_and_Test:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - name: Check out repository code
-        uses: actions/checkout@v4
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - uses: actions/checkout@v4
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v4
+        with:
+            python-verion: 3.9
+      - run: |
+            python3 -m venv test3
+            source test3/bin/activate
+            pip install pip --upgrade
+            pip install -r requirements.txt
+            export FLASK_APP=application
+#       - name: Test
+#       - run: |
+#             source test3/bin/activate
+#             py.test --verbose --junit-xml test-reports/results.xml
+
+#   Clean:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v4
+#       - run: |
+
+#   Delpoy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v4
+#       - run: |
+#             pip install -r requirements.txt
+#             pip install gunicorn
+#             python3 -m gunicorn -w 4 application:app -b 0.0.0.0 --daemon
