@@ -10,7 +10,10 @@ jobs:
         uses: actions/setup-python@v4
         with:
             python-verion: '3.9'
-      - run: |
+      - name: Display Python version
+        run: python3 -c "import sys; print(sys.version)"
+      - name: Setup & Dependencies
+        run: |
             python3 -m venv test3
             source test3/bin/activate
             pip install pip --upgrade
