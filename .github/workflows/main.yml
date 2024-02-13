@@ -19,10 +19,10 @@ jobs:
             pip install pip --upgrade
             pip install -r requirements.txt
             export FLASK_APP=application
-#       - name: Test
-#       - run: |
-#             source test3/bin/activate
-#             py.test --verbose --junit-xml test-reports/results.xml
+      - name: Test with pytest
+        run: |
+            source test3/bin/activate
+            py.test --verbose --junit-xml test-reports/results.xml
 
 # steps:
 #     - name: Clean up
