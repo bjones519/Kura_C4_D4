@@ -24,17 +24,18 @@ jobs:
             source test3/bin/activate
             py.test --verbose --junit-xml test-reports/results.xml
 
-  Clean:
-    runs-on: self-hosted
-    steps:
-      - uses: actions/checkout@v4
-      - name: Stopping gunicorn process
-        run: |
-            if [[ $(ps aux | grep -i "gunicorn" | tr -s " " | head -n 1 | cut -d " " -f 2) != 0 ]]; then
-                ps aux | grep -i "gunicorn" | tr -s " " | head -n 1 | cut -d " " -f 2 > pid.txt
-                kill $(cat pid.txt)
-                exit 0
-            fi
+#   Clean:
+#     runs-on: self-hosted
+#     steps:
+#       - uses: actions/checkout@v4
+#       - name: Stopping gunicorn process
+#         run: |
+#             if [[ $(ps aux | grep -i "gunicorn" | tr -s " " | head -n 1 | cut -d " " -f 2) != 0 ]]; 
+#             then
+#                 ps aux | grep -i "gunicorn" | tr -s " " | head -n 1 | cut -d " " -f 2 > pid.txt
+#                 kill $(cat pid.txt)
+#                 exit 0
+#             fi
 
   Deploy:
     runs-on: self-hosted
