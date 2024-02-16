@@ -44,4 +44,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: Deploy app
         run: python3 -m gunicorn -w 4 application:app -b 0.0.0.0 --daemon
+
+      - name: Sleep for 60 seconds
+        run: sleep 60s
+        shell: bash
+      
             
