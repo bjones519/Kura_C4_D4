@@ -1,6 +1,6 @@
 name: App Deployment
 run-name: Flask App Deployment 🚀
-on: [push]
+on: [push, workflow_dispatch]
 jobs:
   Build_and_Test:
     runs-on: self-hosted
