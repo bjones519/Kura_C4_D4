@@ -39,6 +39,7 @@ jobs:
 
   Deploy:
     runs-on: self-hosted
+    needs: Build_and_Test
     steps:
       - uses: actions/checkout@v4
       - name: Deploy app
